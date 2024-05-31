@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""this file contains code for the Base class"""
+"""this file contains code for the BaseModel class"""
 
 
-class Base:
+class BaseModel:
     pass
