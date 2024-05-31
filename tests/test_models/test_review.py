@@ -11,4 +11,5 @@ from models.user import User
 
 
 class Test_Review(unittest.TestCase):
+    """tests for the Review class"""
     pass

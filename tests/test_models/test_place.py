@@ -11,4 +11,5 @@ from models.user import User
 
 
 class Test_Place(unittest.TestCase):
+    """tests for the Place class"""
     pass

@@ -11,4 +11,5 @@ from models.user import User
 
 
 class Test_BaseModel(unittest.TestCase):
+    """tests for the BaseModel class"""
     pass

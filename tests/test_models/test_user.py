@@ -11,4 +11,5 @@ from models.state import State
 
 
 class Test_User(unittest.TestCase):
+    """tests for the User class"""
     pass
