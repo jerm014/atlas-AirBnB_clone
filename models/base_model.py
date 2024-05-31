@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 class BaseModel:
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """init the object"""
         now = datetime.now()
         self.id = str(uuid.uuid4())
