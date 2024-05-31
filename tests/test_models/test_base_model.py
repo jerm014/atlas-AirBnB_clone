@@ -14,7 +14,7 @@ class Test_BaseModel(unittest.TestCase):
     """tests for the BaseModel class"""
     def test_1(self):
         b = BaseModel()
-        initial_modify_at = d.updated_at
+        initial_modify_at = b.updated_at
         b.save()
         self.assertGreater(initial_modify_at, b.updated_at)
     
