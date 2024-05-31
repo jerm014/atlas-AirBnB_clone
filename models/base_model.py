@@ -23,12 +23,12 @@ class BaseModel:
 
     def __str__(self):
         """print out the string representation of the object"""
-        print("[{}] ({}) {}", self.__class__, self.id, self.__dict__)
+        print("[{}] ({}) {}", self.__class__.__name__, self.id, self.__dict__)
 
     def to_dict(self):
         """return this as a dictionary objet"""
         d = self.__dict__.copy()
-#       d["__class__"] = self.__class__
+        d["__class__"] = self.__class__.__name__
         d["created_at"] = self.created_at.isoformat()
         d["updated_at"] = self.updated_at.isoformat()
         return d
