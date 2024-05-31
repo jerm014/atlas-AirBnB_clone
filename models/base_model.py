@@ -13,7 +13,7 @@ class BaseModel:
         self.updated_at = now
         if kwargs:
             for key, value in kwargs.items():
-                if key[-3] == "_at" or key == "_at":
+                if key.endswith("_at"):
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                 if key != "__class__":
                     setattr(self, key, value)
@@ -37,3 +37,7 @@ class BaseModel:
     def save(self):
         """Update updated_at"""
         self.updated_at = datetime.now()
+
+    @staticmethod
+    def get_last_three_letters(a_list):
+        return ''.join([x[-3:].lower() for x in a_list if len(x) > 2])
