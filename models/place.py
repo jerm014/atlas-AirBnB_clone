@@ -4,4 +4,10 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    pass
+    def to_dictionary(self):
+        """return a dictionary describing the Place"""
+        d = {"id": self.id,
+             "updated_at": self.updated_at,
+             "created_at": self.created_at,
+             "name": self.name}
+        return d
