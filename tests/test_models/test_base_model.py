@@ -13,7 +13,10 @@ from models.user import User
 class Test_BaseModel(unittest.TestCase):
     """tests for the BaseModel class"""
     def test_1(self):
-        pass
+        b = BaseModel()
+        initial_modify_at = d.updated_at
+        b.save()
+        self.assertGreater(initial_modify_at, b.updated_at)
     
     def test_2(self):
         pass
