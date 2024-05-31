@@ -12,4 +12,17 @@ from models.user import User
 
 class Test_City(unittest.TestCase):
     """tests for the City class"""
-    pass
+    def test_1(self):
+        pass
+    
+    def test_2(self):
+        pass
+
+    def test_3(self):
+        pass
+
+    def test_4(self):
+        pass
+
+    def test_5(self):
+        pass
