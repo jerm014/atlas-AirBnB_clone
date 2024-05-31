@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """this file contains code for testing the Amenity class"""
-
-
 import unittest
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
