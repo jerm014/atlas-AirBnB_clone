@@ -23,7 +23,8 @@ class BaseModel:
 
     def __str__(self):
         """print out the string representation of the object"""
-        res = "[{}] ({}) {}".format(self.__class__.__name__, self.id, BaseModel.to_dict(self))
+        res = "[{}]".format(self.__class__.__name__) +
+              "({})".format(self.id) + BaseModel.to_dict(self))
         return (res)
 
     def to_dict(self):
