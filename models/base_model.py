@@ -2,6 +2,7 @@
 """this file contains code for the BaseModel class"""
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -23,8 +24,8 @@ class BaseModel:
 
     def __str__(self):
         """print out the string representation of the object"""
-        res = "[{}]".format(self.__class__.__name__) +
-              "({})".format(self.id) + BaseModel.to_dict(self))
+        res = "[{}]".format(self.__class__.__name__)
+        res += "({})".format(self.id) + BaseModel.to_dict(self)
         return (res)
 
     def to_dict(self):
@@ -38,6 +39,7 @@ class BaseModel:
     def save(self):
         """Update updated_at"""
         self.updated_at = datetime.now()
+        storage.save(self)
 
     @staticmethod
     def get_last_three_letters(a_list):

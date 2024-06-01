@@ -9,4 +9,17 @@ from models.user import User
 
 
 class FileStorage:
-    pass
+    __file_path = ""
+    __objects: []
+
+    def all(self):
+        pass
+
+    def new(self, obj):
+        pass
+
+    def save(self):
+        pass
+
+    def reload(self):
+        pass
