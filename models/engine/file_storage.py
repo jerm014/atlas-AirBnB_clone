@@ -9,8 +9,8 @@ class FileStorage:
     __objects = {}
 
     def __init__(self, file_path="file.json"):
-        self.__file_path = file_path
-        self.__objects = {}
+        self.file_path = file_path
+        self.objects = {}
 
     @property
     def file_path(self):
@@ -22,21 +22,21 @@ class FileStorage:
 
     @file_path.setter
     def file_path(self, file_path):
-        self.file_path = file_path
+        self.__file_path = file_path
 
     @objects.setter
     def objects(self, objects):
-        self.objects = objects
+        self.__objects = objects
 
     def all(self):
-        return self.__objects
+        return self.objects
 
     def new(self, obj):
         self.objects[obj.id] = obj.to_dict()
 
     def save(self):
-        with open(self.file_path, "w") as f:
-            json.dump(self.objects, f)
+        with open(self.file_path, "w") as fileobj:
+            json.dump(self.objects, fileobj)
 
     def reload(self):
         if os.path.exists(self.file_path):

@@ -2,7 +2,7 @@
 """this file contains code for the BaseModel class"""
 import uuid
 from datetime import datetime
-import models
+from models import *
 
 
 class BaseModel:
