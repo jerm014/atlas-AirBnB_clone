@@ -10,7 +10,7 @@ from models.user import User
 
 class FileStorage:
     __file_path = ""
-    __objects: []
+    __objects= []
 
     def all(self):
         pass
