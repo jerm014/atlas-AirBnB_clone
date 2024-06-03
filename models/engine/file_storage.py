@@ -4,6 +4,8 @@ import json
 import models
 import os
 
+import models.base_model
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
@@ -23,4 +25,4 @@ class FileStorage:
             with open(self.__file_path, "r") as file:
                 self.__objects = json.load(file)
             for key, value in self.__objects.items():
-                self.__objects[key] = self.__objects[key].__class__.__name__(**value)
+                self.__objects[key] = models.base_model.BaseModel(**value)
