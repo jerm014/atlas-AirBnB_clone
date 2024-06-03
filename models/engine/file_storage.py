@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """this file contains code for file storage"""
 import json
-from models.base_model import BaseModel
+import models
 import os
 
 class FileStorage:
@@ -23,4 +23,4 @@ class FileStorage:
             with open(self.__file_path, "r") as file:
                 self.__objects = json.load(file)
             for key, value in self.__objects.items():
-                self.__objects[key] = BaseModel(**value)
+                self.__objects[key] = self.__objects[key].__class__.__name__(**value)
