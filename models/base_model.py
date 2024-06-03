@@ -2,7 +2,6 @@
 """this file contains code for the BaseModel class"""
 import uuid
 from datetime import datetime
-from models import storage
 
 
 class BaseModel:
@@ -39,7 +38,7 @@ class BaseModel:
     def save(self):
         """Update updated_at"""
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     @staticmethod
     def get_last_three_letters(a_list):
