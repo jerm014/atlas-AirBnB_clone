@@ -50,24 +50,30 @@ class BaseModel:
 
     @property
     def id(self):
+        """ id getter """
         return self.__id
 
     @property
     def created_at(self):
+        """ created_at getter """
         return self.__created_at
 
     @property
     def updated_at(self):
+        """ updated_at getter """
         return self.__updated_at
 
     @id.setter
     def id(self, value):
+        """ id setter """
         self.__id = value
 
     @created_at.setter
     def created_at(self, value):
+        """ created_at setter """
         self.__created_at = value
 
     @updated_at.setter
     def updated_at(self,value):
+        """ updated_at setter """
         self.__updated_at = value
