@@ -6,8 +6,19 @@ from models.base_model import BaseModel
 class Place(BaseModel):
     """
     class for Place with attributes:
-        user_id, name, city_id, description, number_rooms, number_bathrooms,
-        max_guest, price_by_night, latitude, longitude
+       * id         (BaseModel) (Primary Key)
+       * updated_at (BaseModel)
+       * created_at (BaseModel)
+       * user_id                (Foreign Key to User)
+       * name
+       * city_id                (Foreign Key to City)
+       * description
+       * number_rooms
+       * number_bathrooms
+       * max_guest
+       * price_by_night
+       * latitude
+       * longitude
     """
 
     __user_id = None

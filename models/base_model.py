@@ -6,18 +6,34 @@ import models
 
 
 class BaseModel:
-    """Base Model class, parent to other classes."""
+    """class for BaseModel, with attributes:
+          * id         (Primary Key)
+          * updated_at
+          * created_at
 
-    __created_at = datetime.now()
-    __updated_at = datetime.now()
+       this class is inherited by:
+            file name        class name
+            ---------------------------
+            amenity.py       Amenity
+            city.py          City
+            place_amenity.py PlaceAmenity
+            place.py         Place
+            review.py        Review
+            state.py         State
+            user.py          User
+    """
+
     __id = ""
+    __updated_at = datetime.now()
+    __created_at = datetime.now()
 
     def __init__(self, *args, **kwargs):
         """initialize this object, set properties"""
         now = datetime.now()
         self.id = str(uuid.uuid4())
-        self.created_at = now
         self.updated_at = now
+        self.created_at = now
+
         if kwargs:
             for key, value in kwargs.items():
                 if key.endswith("_at"):
@@ -26,8 +42,8 @@ class BaseModel:
                     setattr(self, key, value)
             if "id" not in kwargs:
                 self.id = str(uuid.uuid4())
-                self.created_at = now
                 self.updated_at = now
+                self.created_at = now
 
     def __str__(self):
         """print out the string representation of the object"""
@@ -39,8 +55,8 @@ class BaseModel:
         """return self as a dictionary objet"""
         d = self.__dict__.copy()
         d["__class__"] = self.__class__.__name__
-        d["created_at"] = self.created_at.isoformat()
         d["updated_at"] = self.updated_at.isoformat()
+        d["created_at"] = self.created_at.isoformat()
         return d
 
     def save(self):
@@ -54,26 +70,26 @@ class BaseModel:
         return self.__id
 
     @property
-    def created_at(self):
-        """ created_at getter """
-        return self.__created_at
-
-    @property
     def updated_at(self):
         """ updated_at getter """
         return self.__updated_at
+
+    @property
+    def created_at(self):
+        """ created_at getter """
+        return self.__created_at
 
     @id.setter
     def id(self, value):
         """ id setter """
         self.__id = value
 
-    @created_at.setter
-    def created_at(self, value):
-        """ created_at setter """
-        self.__created_at = value
-
     @updated_at.setter
     def updated_at(self,value):
         """ updated_at setter """
         self.__updated_at = value
+
+    @created_at.setter
+    def created_at(self, value):
+        """ created_at setter """
+        self.__created_at = value

@@ -6,7 +6,12 @@ from models.base_model import BaseModel
 class Review(BaseModel):
     """
     class for Review with attributes:
-        user_id, place_id, text
+       * id         (BaseModel) (Primary Key)
+       * updated_at (BaseModel)
+       * created_at (BaseModel)
+       * user_id                (Foreign Key to User)
+       * place_id               (Foreign Key to Place)
+       * text
     """
 
     __user_id = None

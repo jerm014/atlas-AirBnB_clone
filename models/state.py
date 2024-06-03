@@ -6,7 +6,10 @@ from models.base_model import BaseModel
 class State(BaseModel):
     """
     class for State with attributes:
-        name
+       * id         (BaseModel) (Primary Key)
+       * updated_at (BaseModel)
+       * created_at (BaseModel)
+       * name
     """
 
     __name = ""

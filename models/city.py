@@ -6,7 +6,11 @@ from models.base_model import BaseModel
 class City(BaseModel):
     """
     class for City with attributes:
-        name, state_id
+       * id         (BaseModel) (Primary Key)
+       * updated_at (BaseModel)
+       * created_at (BaseModel)
+       * name
+       * state_id               (Foreign Key to State)
     """
 
     __name = ""

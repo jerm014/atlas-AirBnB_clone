@@ -6,7 +6,13 @@ from models.base_model import BaseModel
 class User(BaseModel):
     """
     class for User with attributes:
-        email, first_name, last_name, password
+       * id         (BaseModel) (Primary Key)
+       * updated_at (BaseModel)
+       * created_at (BaseModel)
+       * email
+       * first_name
+       * last_name
+       * password
 
     password is stored as an MD5 digest,
     which was declared unsably broken in 1996.

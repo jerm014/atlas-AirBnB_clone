@@ -6,7 +6,10 @@ from models.base_model import BaseModel
 class Amenity(BaseModel):
     """
     class for Amenity with attributes:
-        name
+       * id         (BaseModel) (Primary Key)
+       * updated_at (BaseModel)
+       * created_at (BaseModel)
+       * name
     """
 
     __name = ""
