@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """this file contains code for file storage"""
 import json
-import models
+from models.base_model import BaseModel
+import os
 
 class FileStorage:
     __file_path = "file.json"
@@ -18,14 +19,8 @@ class FileStorage:
             json.dump(self.__objects, fileobj)
 
     def reload(self):
-        try:
-            with open(FileStorage.__file_path, encoding="UTF8") as fd:
-                FileStorage.__objects = json.load(fd)
-            for key, value in FileStorage.__objects.items():
-                class_name = value["__class__"]
-                print(class_name)
-                class_name = models.classes[class_name]
-                print(class_name)
-                FileStorage.__objects[key] = class_name(**value)
-        except FileNotFoundError:
-            pass
+        if os.path.isfile(self.__file_path):
+            with open(self.__file_path, "r") as file:
+                self.__objects = json.load(file)
+            for key, value in self.__objects.items():
+                self.__objects[key] = BaseModel(**value)
