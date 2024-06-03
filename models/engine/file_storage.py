@@ -23,7 +23,9 @@ class FileStorage:
                 FileStorage.__objects = json.load(fd)
             for key, value in FileStorage.__objects.items():
                 class_name = value["__class__"]
+                print(class_name)
                 class_name = models.classes[class_name]
+                print(class_name)
                 FileStorage.__objects[key] = class_name(**value)
         except FileNotFoundError:
             pass
