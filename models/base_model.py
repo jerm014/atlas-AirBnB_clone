@@ -6,8 +6,14 @@ import models
 
 
 class BaseModel:
+    """Base Model class, parent to other classes."""
+
+    __created_at = datetime.now()
+    __updated_at = datetime.now()
+    __id = ""
+
     def __init__(self, *args, **kwargs):
-        """init the object"""
+        """initialize this object, set properties"""
         now = datetime.now()
         self.id = str(uuid.uuid4())
         self.created_at = now
@@ -20,7 +26,8 @@ class BaseModel:
                     setattr(self, key, value)
             if "id" not in kwargs:
                 self.id = str(uuid.uuid4())
-                self.created_at = self.updated_at = datetime.now()
+                self.created_at = now
+                self.updated_at = now
 
     def __str__(self):
         """print out the string representation of the object"""
@@ -29,7 +36,7 @@ class BaseModel:
         return (res)
 
     def to_dict(self):
-        """return this as a dictionary objet"""
+        """return self as a dictionary objet"""
         d = self.__dict__.copy()
         d["__class__"] = self.__class__.__name__
         d["created_at"] = self.created_at.isoformat()
@@ -37,10 +44,30 @@ class BaseModel:
         return d
 
     def save(self):
-        """Update updated_at"""
+        """update updated_at and save the data using storage"""
         self.updated_at = datetime.now()
         models.storage.save()
 
-    @staticmethod
-    def get_last_three_letters(a_list):
-        return ''.join([x[-3:].lower() for x in a_list if len(x) > 2])
+    @property
+    def id(self):
+        return self.__id
+
+    @property
+    def created_at(self):
+        return self.__created_at
+
+    @property
+    def updated_at(self):
+        return self.__updated_at
+
+    @id.setter
+    def id(self, value):
+        self.__id = value
+
+    @created_at.setter
+    def created_at(self, value):
+        self.__created_at = value
+
+    @updated_at.setter
+    def updated_at(self,value):
+        self.__updated_at = value
