@@ -2,8 +2,9 @@
 """this file contains code for the console"""
 
 import cmd
-
+from models.basemodel import BaseModel
 import json
+
 file_path = "file.json"
 
 class HBNBCommand(cmd.Cmd):
@@ -31,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
             new_instance.save()
             print(new_instance.id)
         except NameError:
-            print("** class doesnt exist **")
+            print("** class doesn't exist **")
 
     def do_help(self, arg):
         """help information"""
