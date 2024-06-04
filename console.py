@@ -57,20 +57,20 @@ class HBNBCommand(cmd.Cmd):
     def show_help_show(self):
         print("show <class>")
         print()
-        print("shows the data for a class object")
-        print("class can be one of the following:")
+        print("  shows the data for a class object")
+        print("  class can be one of the following:")
         for i in self.classes:
-            print (f"  * {i}")
+            print (f"    * {i}")
         print()
 
 
     def show_help_create(self):    
         print("create <class>")
         print()
-        print("creates a new class object")
-        print("class can be one of the following:")
+        print("  creates a new class object")
+        print("  class can be one of the following:")
         for i in self.classes:
-            print (f"  * {i}")
+            print (f"    * {i}")
         print()
 
     def do_create(self, line):
