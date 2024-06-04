@@ -2,7 +2,7 @@
 """this file contains code for the console"""
 
 import cmd
-from models.base_model import Base_Model
+from models.base_model import BaseModel
 import json
 
 file_path = "file.json"
