@@ -25,17 +25,17 @@ class HBNBCommand(cmd.Cmd):
 
     @staticmethod
     def show_error(e):
-        if e | self.NO_EXIST:
+        if e | HBNBCommand.NO_EXIST:
             print("** class doesn't exist **")
-        if e | self.NO_NAME:
+        if e | HBNBCommand.NO_NAME:
             print("** class name missing **")
-        if e | self.NO_ID:
+        if e | HBNBCommand.NO_ID:
             print("** instance id missing **")
-        if e | self.NO_INSTANCE:
+        if e | HBNBCommand.NO_INSTANCE:
             print("** no instance found **")
-        if e | self.NO_ATTRIBUTE:
+        if e | HBNBCommand.NO_ATTRIBUTE:
             print("** attribute name missing **")
-        if e | self.NO_VALUE:
+        if e | HBNBCommand.NO_VALUE:
             print("** value missing **")
 
     def do_hbnh(self, line):
