@@ -18,5 +18,11 @@ class HBNBCommand(cmd.Cmd):
     def do_help(self, arg):
         cmd.Cmd.do_help(self, arg)
 
+    def default(self, line):
+        if line == '':
+            return
+        else:
+            print(f"Invalid command: {line}")
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
