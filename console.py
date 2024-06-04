@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
                   "========================================\n"
                   "create EOF  help  quit")
 
-    def show_help_create(self, line):    
+    def show_help_create(self):    
         print("create <class>")
         print()
         print("class can be one of the following:")
