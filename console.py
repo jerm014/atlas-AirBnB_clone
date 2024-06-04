@@ -2,7 +2,6 @@
 """this file contains code for the console"""
 
 import cmd
-import json
 import models
 
 class HBNBCommand(cmd.Cmd):
