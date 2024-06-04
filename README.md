@@ -11,7 +11,7 @@ To start the command interpreter, type ./console.py and press enter.
 
 You can also use the console in non-interactive mode like this:
 
-'''
+```
 $ echo "help" | ./console.py
 (hbnb)
 
@@ -31,4 +31,4 @@ Documented commands (type help <topic>):
 EOF  help  quit
 (hbnb) 
 $
-'''
+```
