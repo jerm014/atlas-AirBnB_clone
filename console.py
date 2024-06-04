@@ -202,10 +202,10 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self, line):
         return
 
-    def show_help_quit(self, line):
+    def show_help_quit(self):
         print("Quit command to exit the program")
 
-    def show_help_EOF(self, line):
+    def show_help_EOF(self):
         print("EOF command to exit the program")
 
 
