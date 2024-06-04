@@ -65,13 +65,13 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """create a new instance of an object and save it"""
         if not line:
-            self.show_error(NO_NAME)
+            self.show_error(self.NO_NAME)
             return
 
         cls = line.split()[0]
 
         if cls not in self.classes:
-            self.show_error(NO_EXIST)
+            self.show_error(self.NO_EXIST)
             return
 
         if cls == "Amenity":
@@ -97,21 +97,21 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
 
         if not args:
-            self.show_error(NO_NAME)
+            self.show_error(self.NO_NAME)
             return
 
         cls = arg.split()[0]
         if cls not in self.classes:
-            self.show_error(NO_EXIST)
+            self.show_error(self.NO_EXIST)
             return
 
         if len(args) < 2:
-            self.show_error(NO_ID)
+            self.show_error(self.NO_ID)
             return
 
         key = "{}.{}".format(args[0], args[1])
         if key not in storage.all():
-            self.show_error(NO_INSTANCE)
+            self.show_error(self.NO_INSTANCE)
             return
 
         print(storage.all()[key])
@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
             cls = line.split()[0]
 
             if cls not in self.classes:
-                self.show_error(NO_EXIST)
+                self.show_error(self.NO_EXIST)
                 return
 
             for key, obj in storage.all().items():
@@ -138,22 +138,22 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
 
         if not args:
-            self.show_error(NO_NAME)
+            self.show_error(self.NO_NAME)
             return
 
         cls = args[0]
 
         if cls not in self.classes:
-            self.show_error(NO_EXIST)
+            self.show_error(self.NO_EXIST)
             return
 
         if len(args) < 2:
-            sef.show_error(NO_ID)
+            sef.show_error(self.NO_ID)
             return
 
         key = "{}.{}".format(args[0], args[1])
         if key not in storage.all():
-            self.show_error(NO_INSTANCE)
+            self.show_error(self.NO_INSTANCE)
             return
 
         del storage.all()[key]
@@ -163,30 +163,30 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
 
         if not args:
-            self.show_error(NO_NAME)
+            self.show_error(self.NO_NAME)
             return
 
         cls = args[0]
 
         if cls not in self.classes:
-            self.show_error(NO_EXIST)
+            self.show_error(self.NO_EXIST)
             return
 
         if len(args) < 2:
-            self.show_error(NO_ID)
+            self.show_error(self.NO_ID)
             return
 
         key = "{}.{}".format(args[0], args[1])
         if key not in storage.all():
-            self.show_error(NO_INSTANCE)
+            self.show_error(self.NO_INSTANCE)
             return
 
         if len(args) < 3:
-            self.show_error(NO_ATTRIBUTE)
+            self.show_error(self.NO_ATTRIBUTE)
             return
 
         if len(args) < 4:
-            self.show_error(NO_VALUE)
+            self.show_error(self.NO_VALUE)
             return
 
         obj = storage.all()[key]
