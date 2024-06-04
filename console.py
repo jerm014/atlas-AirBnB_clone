@@ -5,9 +5,10 @@ from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
 from models.place import Place
-from models.reload import Review
+from models.review import Review
 from models.state import State
 from models.user import User
+from models import storage
 import json
 
 class HBNBCommand(cmd.Cmd):
@@ -28,17 +29,17 @@ class HBNBCommand(cmd.Cmd):
 
     @staticmethod
     def show_error(e):
-        if e | HBNBCommand.NO_EXIST:
+        if e == HBNBCommand.NO_EXIST:
             print("** class doesn't exist **")
-        if e | HBNBCommand.NO_NAME:
+        if e == HBNBCommand.NO_NAME:
             print("** class name missing **")
-        if e | HBNBCommand.NO_ID:
+        if e == HBNBCommand.NO_ID:
             print("** instance id missing **")
-        if e | HBNBCommand.NO_INSTANCE:
+        if e == HBNBCommand.NO_INSTANCE:
             print("** no instance found **")
-        if e | HBNBCommand.NO_ATTRIBUTE:
+        if e == HBNBCommand.NO_ATTRIBUTE:
             print("** attribute name missing **")
-        if e | HBNBCommand.NO_VALUE:
+        if e == HBNBCommand.NO_VALUE:
             print("** value missing **")
 
     def do_hbnh(self, line):
@@ -79,13 +80,13 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """create a new instance of an object and save it"""
         if not line:
-            self.show_error(self.NO_NAME)
+            self.show_error(HBNBCommand.NO_NAME)
             return
 
         cls = line.split()[0]
 
         if cls not in self.classes:
-            self.show_error(self.NO_EXIST)
+            self.show_error(HBNBCommand.NO_EXIST)
             return
 
         if cls == "Amenity":
@@ -111,12 +112,12 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
 
         if not args:
-            self.show_error(self.NO_NAME)
+            self.show_error(HBNBCommand.NO_NAME)
             return
 
         cls = arg.split()[0]
         if cls not in self.classes:
-            self.show_error(self.NO_EXIST)
+            self.show_error(HBNBCommand.NO_EXIST)
             return
 
         if len(args) < 2:
@@ -125,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
 
         key = "{}.{}".format(args[0], args[1])
         if key not in storage.all():
-            self.show_error(self.NO_INSTANCE)
+            self.show_error(HBNBCommand.NO_INSTANCE)
             return
 
         print(storage.all()[key])
@@ -137,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
             cls = line.split()[0]
 
             if cls not in self.classes:
-                self.show_error(self.NO_EXIST)
+                self.show_error(HBNBCommand.NO_EXIST)
                 return
 
             for key, obj in storage.all().items():
@@ -152,17 +153,17 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
 
         if not args:
-            self.show_error(self.NO_NAME)
+            self.show_error(HBNBCommand.NO_NAME)
             return
 
         cls = args[0]
 
         if cls not in self.classes:
-            self.show_error(self.NO_EXIST)
+            self.show_error(HBNBCommand.NO_EXIST)
             return
 
         if len(args) < 2:
-            sef.show_error(self.NO_ID)
+            sef.show_error(HBNBCommand.NO_ID)
             return
 
         key = "{}.{}".format(args[0], args[1])
@@ -177,13 +178,13 @@ class HBNBCommand(cmd.Cmd):
         args = line.split()
 
         if not args:
-            self.show_error(self.NO_NAME)
+            self.show_error(HBNBCommand.NO_NAME)
             return
 
         cls = args[0]
 
         if cls not in self.classes:
-            self.show_error(self.NO_EXIST)
+            self.show_error(HBNBCommand.NO_EXIST)
             return
 
         if len(args) < 2:
@@ -192,15 +193,15 @@ class HBNBCommand(cmd.Cmd):
 
         key = "{}.{}".format(args[0], args[1])
         if key not in storage.all():
-            self.show_error(self.NO_INSTANCE)
+            self.show_error(HBNBCommand.NO_INSTANCE)
             return
 
         if len(args) < 3:
-            self.show_error(self.NO_ATTRIBUTE)
+            self.show_error(HBNBCommand.NO_ATTRIBUTE)
             return
 
         if len(args) < 4:
-            self.show_error(self.NO_VALUE)
+            self.show_error(HBNBCommand.NO_VALUE)
             return
 
         obj = storage.all()[key]
