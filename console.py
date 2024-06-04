@@ -1,10 +1,13 @@
 #!/usr/bin/python3
 """this file contains code for the console"""
 import cmd
-import models
-
-import cmd
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.reload import Review
+from models.state import State
+from models.user import User
 import json
 
 class HBNBCommand(cmd.Cmd):
