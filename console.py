@@ -2,6 +2,8 @@
 """this file contains code for the console"""
 
 import cmd
+import json
+import models
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
@@ -17,6 +19,18 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """do nothing on empty input"""
         pass
+
+    def do_create(self, arg):
+        """creates new BaseModel instance, saves and prints id"""
+        if not arg:
+            print("** missing class name **")
+            return
+        try:
+            new_instance = eval(arg)()
+            new_instance.save()
+            print(new_instance.id)
+        except NameError:
+            print("** class doesnt exist **")
 
     def do_help(self, arg):
         """help information"""
