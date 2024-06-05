@@ -2,6 +2,7 @@
 """this file contains code for testing the Amenity class"""
 import unittest
 import models
+from datetime import datetime
 from models.engine.file_storage import FileStorage
 from models import storage
 from models.amenity import Amenity
