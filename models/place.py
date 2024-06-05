@@ -21,14 +21,14 @@ class Place(BaseModel):
        * longitude
     """
 
+    city_id = ""
     user_id = ""
     name = ""
-    city_id = ""
     description = ""
-    number_rooms = 0
-    number_bathrooms = 0
+    number_rooms = ""
+    number_bathrooms = ""
     max_guest = 0
-    price_by_night = 0.0
-    latitude = 0.0
-    longitude = 0.0
-    amenities = [] # a list of Amenity objects
+    price_by_night = 0
+    latitude = 0
+    longitude = 0
+    amenities = []
