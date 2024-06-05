@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
             print(f"    * {i}")
         print()
 
-    def show_help_create(self):    
+    def show_help_create(self):
         print("Usage:\n\n  create <class>")
         print()
         print("  creates a new class object")
