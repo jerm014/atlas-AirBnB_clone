@@ -5,6 +5,22 @@ from models.base_model import BaseModel
 import os
 
 class FileStorage:
+    """
+        class for FileStorage, with attributes:
+          * file_path
+          * objects
+        
+        methods:
+          * all       - return the objects saved
+          * new       - save a new object to the objects saved
+          * save      - write the objects to JSON located at file_path
+          * reload    - reload the objects from JSON located at file_path
+          * file_path - getter and setter for file_path
+
+        attributes:
+          * file_path - the path to the file for JSON to be saved/reloaded
+          * objects   - the objects that are being or have been saved
+    """
     __file_path = "file.json"
     __objects = {}
 
@@ -12,21 +28,22 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        self.__objects[obj.id] = obj.to_dict()
+
+        key = f"{obj.__class__.__name__}.{obj.id}"
+        self.__objects[key] = obj
 
     def save(self):
         """
-        serializes objects in self.__objects to JSON and save in the file
-        specified by __file_path
+        serialize obj dictionaries to JSON
+        the file is specified in file_path
         """
+        obj_dict = {}
 
-        objects_dictionary = {}
-        print("saving object")
-        with open(self.file_path, "w") as fileobj:
-            for key, value in self.__objects.items():
-                objects_dictionary[key] = value.to_dict()
-                print(f"{key}:{value}")
-            json.dump(objects_dictionary, fileobj)
+        for key, obj in self.__objects.items():
+            obj_dict[key] = obj.to_dict()
+
+        with open(self.file_path, 'w') as f:
+            json.dump(obj_dict, f)
 
     def reload(self):
         if os.path.isfile(self.__file_path):

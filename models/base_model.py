@@ -22,6 +22,20 @@ class BaseModel:
             review.py        Review
             state.py         State
             user.py          User
+
+    methods:
+         * __init__   - make a new object
+         * __str__    - print out stuff about an object
+         * to_dict    - convert an object to a dictionary (used for saving JSON)
+         * save       - update the updated_at and save the object to JSON file
+         * id         - getter and setter for id
+         * updated_at - getter and setter for updated_at
+         * created_at - getter and setter for created_at
+
+    attributes:
+         * id         - the uuid of the object
+         * updated_at - the last time the objet was updated
+         * created_at - the time that the object was created
     """
 
     __id = ""
@@ -29,22 +43,27 @@ class BaseModel:
     __created_at = datetime.now()
 
     def __init__(self, *args, **kwargs):
-        """initialize this object, set properties"""
-        now = datetime.now()
-        self.id = str(uuid.uuid4())
-        self.updated_at = now
-        self.created_at = now
-
+        """
+        make a new object
+        """
+        iso_date_format = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
             for key, value in kwargs.items():
-                if key.endswith("_at"):
-                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                if key != "__class__":
+                if key == "created_at":
+                    self.created_at = datetime.strptime(kwargs["created_at"],
+                                                        iso_date_format)
+                elif key == "updated_at":
+                    self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                        iso_date_format)
+                elif key == "__class__":
+                    pass
+                else:
                     setattr(self, key, value)
-            if "id" not in kwargs:
-                self.id = str(uuid.uuid4())
-                self.updated_at = now
-                self.created_at = now
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         """print out the string representation of the object"""
@@ -58,10 +77,16 @@ class BaseModel:
         d["__class__"] = self.__class__.__name__
         d["updated_at"] = self.updated_at.isoformat()
         d["created_at"] = self.created_at.isoformat()
+        # These shouldn't be in the dictionary. I don't know why they are or
+        # how they get here. Removing them makes JSON save work.
+        del d["_BaseModel__id"]
+        del d["_BaseModel__created_at"]
+        del d["_BaseModel__updated_at"]
+
         return d
 
     def save(self):
-        """update updated_at and save the data using storage"""
+        """update updated_at and save the data using storage package"""
         self.updated_at = datetime.now()
         models.storage.save()
 
