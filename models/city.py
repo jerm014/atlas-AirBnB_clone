@@ -13,21 +13,5 @@ class City(BaseModel):
        * state_id               (Foreign Key to State)
     """
 
-    __name = ""
-    __state_id = None
-
-    @property
-    def name(self):
-        return self.__name
-
-    @property
-    def state_id(self):
-        return self.__state_id
-
-    @name.setter
-    def name(self, value):
-        self.__name = value
-
-    @state_id.setter
-    def state_id(self, value):
-        self.__state_id = value
+    name = ""
+    state_id = ""

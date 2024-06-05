@@ -16,21 +16,5 @@ class PlaceAmenity(BaseModel):
     and created_at in the model but again, I didn't make the rules for this
     """
 
-    __amenity_id = None
-    __place_id = None
-
-    @property
-    def amenity_id(self):
-        return self.__amenity_id
-
-    @amenity_id.setter
-    def amenity_id(self, value):
-        self.__amenity_id = value
-
-    @property
-    def place_id(self):
-        return self.__place_id
-
-    @place_id.setter
-    def place_id(self, value):
-        self.__place_id = value
+    amenity_id = ""
+    place_id = ""
