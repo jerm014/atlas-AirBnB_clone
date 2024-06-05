@@ -25,3 +25,19 @@ class Test_File_Storage(unittest.TestCase):
 
     def test_5(self):
         pass
+
+    def test_6(self):
+        self.assertEqual(type(FileStorage()), FileStorage)
+
+    def test_7(self):
+        with self.assertRaises(TypeError):
+            FileStorage(None)
+
+    def test_8(self):
+        self.assertEqual(str, type(FileStorage._FileStorage__file_path))
+
+    def test_9(self):
+        self.assertEqual(dict, type(FileStorage._FileStorage__objects))
+
+    def test_a(self):
+        self.assertEqual(type(models.storage), FileStorage)
