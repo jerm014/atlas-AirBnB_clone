@@ -116,7 +116,7 @@ class BaseModel:
         self.__id = value
 
     @updated_at.setter
-    def updated_at(self,value):
+    def updated_at(self, value):
         """ updated_at setter """
         self.__updated_at = value
 

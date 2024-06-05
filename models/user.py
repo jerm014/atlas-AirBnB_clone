@@ -22,4 +22,3 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
     password = ""
-    
