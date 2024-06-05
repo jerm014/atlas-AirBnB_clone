@@ -26,3 +26,15 @@ class Test_Place(unittest.TestCase):
 
     def test_5(self):
         pass
+
+    def test_6(self):
+        self.assertEqual(Place, type(Place()))
+
+    def test_7(self):
+        self.assertIn(Place(), models.storage.all().values())
+
+    def test_8(self):
+        self.assertEqual(str, type(Place().id))
+
+    def test_9(self):
+        self.assertEqual(datetime, type(Place().created_at))
