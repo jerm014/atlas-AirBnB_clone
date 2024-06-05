@@ -11,12 +11,13 @@ from models.review import Review
 from models.state import State
 from models.user import User
 
+
 class FileStorage:
     """
         class for FileStorage, with attributes:
           * file_path
           * objects
-        
+
         methods:
           * all       - return the objects saved
           * new       - save a new object to the objects saved
