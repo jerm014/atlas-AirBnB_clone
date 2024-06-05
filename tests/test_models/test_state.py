@@ -26,3 +26,18 @@ class Test_State(unittest.TestCase):
 
     def test_5(self):
         pass
+        
+    def test_6(self):
+        self.assertEqual(State, type(State()))
+
+    def test_7(self):
+        self.assertIn(State(), models.storage.all().values())
+
+    def test_8(self):
+        self.assertEqual(str, type(State().id))
+
+    def test_9(self):
+        self.assertEqual(datetime, type(State().created_at))
+
+    def test_10(self):
+        self.assertEqual(datetime, type(State().updated_at))
