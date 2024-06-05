@@ -26,3 +26,15 @@ class Test_Review(unittest.TestCase):
 
     def test_5(self):
         pass
+
+    def test_6(self):
+        self.assertEqual(Review, type(Review()))
+
+    def test_7(self):
+        self.assertIn(Review(), models.storage.all().values())
+
+    def test_8(self):
+        self.assertEqual(str, type(Review().id))
+
+    def test_9(self):
+        self.assertEqual(datetime, type(Review().created_at))
