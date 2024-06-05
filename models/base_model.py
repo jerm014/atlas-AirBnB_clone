@@ -6,7 +6,8 @@ import models
 
 
 class BaseModel:
-    """class for BaseModel, with attributes:
+    """
+    class for BaseModel, with attributes:
           * id         (Primary Key)
           * updated_at
           * created_at
