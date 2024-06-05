@@ -26,3 +26,16 @@ class Test_Amenity(unittest.TestCase):
 
     def test_5(self):
         pass
+
+    def test_6(self):
+        self.assertEqual(Amenity, type(Amenity()))
+
+    def test_7(self):
+        self.assertIn(Amenity(), models.storage.all().values())
+
+    def test_8(self):
+        self.assertEqual(str, type(Amenity().id))
+
+    def test_9(self):
+        self.assertEqual(datetime, type(Amenity().created_at))
+
