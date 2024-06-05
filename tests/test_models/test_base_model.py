@@ -20,7 +20,7 @@ class Test_BaseModel(unittest.TestCase):
         b = BaseModel()
         initial_modify_at = b.updated_at
         b.save()
-        self.assertEqual(initial_modify_at, b.updated_at)
+        self.assertNotEqual(initial_modify_at, b.updated_at)
     
     def test_2(self):
         pass
