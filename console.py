@@ -14,8 +14,8 @@ import json
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    classes = ["Amenity", 
-               "BaseModel", 
+    classes = ["Amenity",
+               "BaseModel",
                "City",
                "Place",
                "Review",
@@ -46,7 +46,6 @@ class HBNBCommand(cmd.Cmd):
     def do_hbnh(self, line):
         print("hello")
 
-
     def do_help(self, arg):
         if arg:
             try:
@@ -60,22 +59,21 @@ class HBNBCommand(cmd.Cmd):
                   "create  EOF  help  show  quit")
 
     def show_help_show(self):
-        print("Usage:\n show <class>")
+        print("Usage:\n\n  show <class>")
         print()
         print("  shows the data for a class object")
         print("  <class> can be one of the following:")
         for i in self.classes:
-            print (f"    * {i}")
+            print(f"    * {i}")
         print()
 
-
     def show_help_create(self):    
-        print("Usage:\n create <class>")
+        print("Usage:\n\n  create <class>")
         print()
         print("  creates a new class object")
         print("  <class> can be one of the following:")
         for i in self.classes:
-            print (f"    * {i}")
+            print(f"    * {i}")
         print()
 
     def do_create(self, line):
