@@ -5,6 +5,7 @@ from datetime import datetime
 import models
 # import subprocess
 
+
 class BaseModel:
     """
     class for BaseModel, with attributes:
@@ -26,7 +27,7 @@ class BaseModel:
     methods:
          * __init__   - make a new object
          * __str__    - print out stuff about an object
-         * to_dict    - convert an object to a dictionary (used for saving JSON)
+         * to_dict    - convert an object to a dictionary (for saving JSON)
          * save       - update the updated_at and save the object to JSON file
          * id         - getter and setter for id
          * updated_at - getter and setter for updated_at
