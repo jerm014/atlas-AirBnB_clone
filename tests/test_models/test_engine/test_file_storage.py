@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """this file contains code for testing the file stoage"""
 import unittest
+from models.engine.file_storage import FileStorage
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
