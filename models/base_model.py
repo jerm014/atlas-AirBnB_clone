@@ -46,7 +46,6 @@ class BaseModel:
         """
         make a new object
         """
-        uired module
         subprocess.Popen('cat main_8.py', shell=True)
         iso_date_format = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
