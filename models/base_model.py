@@ -79,9 +79,12 @@ class BaseModel:
         d["created_at"] = self.created_at.isoformat()
         # These shouldn't be in the dictionary. I don't know why they are or
         # how they get here. Removing them makes JSON save work.
-        del d["_BaseModel__id"]
-        del d["_BaseModel__created_at"]
-        del d["_BaseModel__updated_at"]
+        if "_BaseModel__id" in d:
+            del d["_BaseModel__id"]
+        if "_BaseModel__created_at" in d:
+            del d["_BaseModel__created_at"]
+        if "_BaseModel__updated_at" in d:
+            del d["_BaseModel__updated_at"]
 
         return d
 
