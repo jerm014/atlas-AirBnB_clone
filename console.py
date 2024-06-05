@@ -163,7 +163,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         if len(args) < 2:
-            sef.show_error(HBNBCommand.NO_ID)
+            se;f.show_error(HBNBCommand.NO_ID)
             return
 
         key = "{}.{}".format(args[0], args[1])
