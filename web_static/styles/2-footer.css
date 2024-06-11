@@ -1,0 +1,13 @@
+footer {
+    position: fixed; 
+    height: 60px; 
+    background-color: green; 
+    bottom: 0px; 
+    right: 0px; 
+    margin-bottom: 0px;
+    width: 100%
+}
+footer p {
+    vertical-align: middle;
+    text-align: center
+}

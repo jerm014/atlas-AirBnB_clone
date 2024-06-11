@@ -1,0 +1,29 @@
+/* this is the box containing the search button */
+.filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+/* this is the search button */
+button {
+    font-size: 18px;
+    background-color: #ff5a5f;
+    color: white;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    margin-top: auto;
+    margin-bottom: auto;
+    vertical-align: middle;
+    margin-right: 30px;
+    text-align: center;
+    float: right;
+}
+button:hover {
+    opacity: 90%;
+}

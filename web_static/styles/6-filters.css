@@ -1,0 +1,49 @@
+/* this is the box containing the search button */
+.filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+ 
+}
+/* this is the search button */
+button {
+    font-size: 18px;
+    background-color: #ff5a5f;
+    color: white;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    margin-top: 12px;
+    margin-bottom: auto;
+    vertical-align: middle;
+    margin-right: 30px;
+    text-align: center;
+    float: right;
+}
+button:hover {
+    opacity: 90%;
+}
+/* this is task 5, locations and amenities */
+div.locations, div.amenities {
+    height: 100%;
+    width: 25%;
+    float: left;
+    margin-bottom: 0px;
+}
+div.locations h3, div.amenities h3 {
+    font-weight: 600;
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+.locations h4, .amenities h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 30px;
+    margin-top: 0px;
+}
+.locations {
+    border-right: 1px solid #dddddd;
+}
