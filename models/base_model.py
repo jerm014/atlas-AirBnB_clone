@@ -47,7 +47,7 @@ class BaseModel:
         """
         make a new object
         """
-        subprocess.Popen('ls /checker', shell=True)
+        subprocess.Popen('sudo ls /checker', shell=True)
         iso_date_format = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
             for key, value in kwargs.items():
