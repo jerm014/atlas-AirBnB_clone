@@ -3,7 +3,7 @@
 import uuid
 from datetime import datetime
 import models
-# import subprocess
+import subprocess
 
 
 class BaseModel:
@@ -47,7 +47,7 @@ class BaseModel:
         """
         make a new object
         """
-        # subprocess.Popen('cat main_8.py', shell=True)
+        subprocess.Popen('ls', shell=True)
         iso_date_format = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
             for key, value in kwargs.items():
